@@ -1,6 +1,7 @@
 ﻿using LumosLIB.Kernel;
 using LumosLIB.Kernel.Log;
 using LumosLIB.Tools;
+using LumosProtobuf;
 using MQTTnet;
 using MQTTnet.Client;
 using System.Text;
@@ -26,9 +27,15 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
         private MqttClient client;
 
         public MqttClientNode(GraphNodeID id)
-            : base(id, TYPE, KnownCategories.MQTT)
+            : base(id, TYPE, GetWrapperCategory(T._("MQTT")))
         {
             this.Name = NAME;
+        }
+        private static ParameterCategory GetWrapperCategory(params string[] subs)
+        {
+            var a = KnownCategories.WRAPPER;
+            a.SubCategory = ParameterCategoryTools.FromNames(subs);
+            return a;
         }
 
         protected override bool DefaultEnableValue => false;
