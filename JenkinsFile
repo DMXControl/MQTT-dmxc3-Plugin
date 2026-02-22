@@ -68,12 +68,12 @@ pipeline {
 		}
 		stage('Archive Artifacts'){
 			steps {
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\MQTT-dmxc3-Plugin.dll\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\MQTT-dmxc3-Plugin.pdb\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\MQTT-dmxc3-Plugin.deps.json\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\MQTTnet.dll\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\System.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net6.0\\Microsoft.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\MQTT-dmxc3-Plugin.dll\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\MQTT-dmxc3-Plugin.pdb\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\MQTT-dmxc3-Plugin.deps.json\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\MQTTnet.dll\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\System.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\MQTT-dmxc3-Plugin\\bin\\Release\\net8.0\\Microsoft.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
 				
 				dir('output') {
 					archiveArtifacts artifacts: '**/*.*'
